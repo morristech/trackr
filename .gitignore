@@ -1,3 +1,7 @@
 /backups/
-/.DS_Store
 /@user_guide/
+
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
