@@ -93,13 +93,7 @@ class Projects extends CI_Controller
 	global $data;
 	$data['pid'] = $pid = $this->uri->segment(3);
 	$data['project'] = $this->projects_model->get_project_by_id($pid);
-
-	$this->load->helper('date');
-	$this->load->helper('currency');
-	$this->load->model('estimations_model');
-
-	$data['estimations'] = $this->estimations_model->get_estimations(10000, 0, $pid);
-
+	
 	$data['main_content'] = 'projects/info.view.php';
 	$this->load->view('template.view.php', $data);
   }

@@ -59,8 +59,8 @@
 				<td><?php echo $item['name']; ?></td>
 				<td><?php echo $item['description']; ?></td>
 				<td><?php echo $item['hours']; ?></td>
-				<td><?php echo money_format('%i', $item['rate']); ?></td>
-				<td><?php echo money_format('%i', $item['cost']); ?></td>
+				<td><?php echo money_format_us('%i', $item['rate']); ?></td>
+				<td><?php echo money_format_us('%i', $item['cost']); ?></td>
 			  </tr>
 			<?php } ?>
   		</tbody>
@@ -85,8 +85,8 @@
 				<td><?php echo $item['name']; ?></td>
 				<td><?php echo $item['description']; ?></td>
 				<td><?php echo $item['hours']; ?></td>
-				<td><?php echo money_format('%i', $item['rate']); ?></td>
-				<td><?php echo money_format('%i', $item['cost']); ?></td>
+				<td><?php echo money_format_us('%i', $item['rate']); ?></td>
+				<td><?php echo money_format_us('%i', $item['cost']); ?></td>
 			  </tr>
 			<?php } ?>
   		</tbody>
@@ -112,8 +112,8 @@
 				<td><?php echo $item['name']; ?></td>
 				<td><?php echo $item['description']; ?></td>
 				<td><?php echo $item['hours']; ?></td>
-				<td><?php echo money_format('%i', $item['rate']); ?></td>
-				<td><?php echo money_format('%i', $item['cost']); ?></td>
+				<td><?php echo money_format_us('%i', $item['rate']); ?></td>
+				<td><?php echo money_format_us('%i', $item['cost']); ?></td>
 			  </tr>
 			<?php } ?>
   		</tbody>
@@ -139,8 +139,8 @@
 				<td><?php echo $item['name']; ?></td>
 				<td><?php echo $item['description']; ?></td>
 				<td><?php echo $item['hours']; ?></td>
-				<td><?php echo money_format('%i', $item['rate']); ?></td>
-				<td><?php echo money_format('%i', $item['cost']); ?></td>
+				<td><?php echo money_format_us('%i', $item['rate']); ?></td>
+				<td><?php echo money_format_us('%i', $item['cost']); ?></td>
 			  </tr>
 			<?php } ?>
   		</tbody>
@@ -166,8 +166,8 @@
 				<td><?php echo $item['name']; ?></td>
 				<td><?php echo $item['description']; ?></td>
 				<td><?php echo $item['hours']; ?></td>
-				<td><?php echo money_format('%i', $item['rate']); ?></td>
-				<td><?php echo money_format('%i', $item['cost']); ?></td>
+				<td><?php echo money_format_us('%i', $item['rate']); ?></td>
+				<td><?php echo money_format_us('%i', $item['cost']); ?></td>
 			  </tr>
 			<?php } ?>
   		</tbody>
@@ -193,8 +193,8 @@
 				<td><?php echo $item['name']; ?></td>
 				<td><?php echo $item['description']; ?></td>
 				<td><?php echo $item['hours']; ?></td>
-				<td><?php echo money_format('%i', $item['rate']); ?></td>
-				<td><?php echo money_format('%i', $item['cost']); ?></td>
+				<td><?php echo money_format_us('%i', $item['rate']); ?></td>
+				<td><?php echo money_format_us('%i', $item['cost']); ?></td>
 			  </tr>
 			<?php } ?>
   		</tbody>
@@ -220,8 +220,8 @@
 				<td><?php echo $item['name']; ?></td>
 				<td><?php echo $item['description']; ?></td>
 				<td><?php echo $item['hours']; ?></td>
-				<td><?php echo money_format('%i', $item['rate']); ?></td>
-				<td><?php echo money_format('%i', $item['cost']); ?></td>
+				<td><?php echo money_format_us('%i', $item['rate']); ?></td>
+				<td><?php echo money_format_us('%i', $item['cost']); ?></td>
 			  </tr>
 			<?php } ?>
   		</tbody>
@@ -246,8 +246,8 @@
 				<td><?php echo $item['name']; ?></td>
 				<td><?php echo $item['description']; ?></td>
 				<td><?php echo $item['hours']; ?></td>
-				<td><?php echo money_format('%i', $item['rate']); ?></td>
-				<td><?php echo money_format('%i', $item['cost']); ?></td>
+				<td><?php echo money_format_us('%i', $item['rate']); ?></td>
+				<td><?php echo money_format_us('%i', $item['cost']); ?></td>
 			  </tr>
 			<?php } ?>
   		</tbody>
@@ -272,8 +272,8 @@
 				<td><?php echo $item['name']; ?></td>
 				<td><?php echo $item['description']; ?></td>
 				<td><?php echo $item['hours']; ?></td>
-				<td><?php echo money_format('%i', $item['rate']); ?></td>
-				<td><?php echo money_format('%i', $item['cost']); ?></td>
+				<td><?php echo money_format_us('%i', $item['rate']); ?></td>
+				<td><?php echo money_format_us('%i', $item['cost']); ?></td>
 			  </tr>
 			<?php } ?>
   		</tbody>
@@ -298,8 +298,8 @@
 				<td><?php echo $item['name']; ?></td>
 				<td><?php echo $item['description']; ?></td>
 				<td><?php echo $item['hours']; ?></td>
-				<td><?php echo money_format('%i', $item['rate']); ?></td>
-				<td><?php echo money_format('%i', $item['cost']); ?></td>
+				<td><?php echo money_format_us('%i', $item['rate']); ?></td>
+				<td><?php echo money_format_us('%i', $item['cost']); ?></td>
 			  </tr>
 			<?php } ?>
   		</tbody>
@@ -326,8 +326,8 @@
 				<td><?php echo $item['name']; ?></td>
 				<td><?php echo $item['description']; ?></td>
 				<td><?php echo $item['hours']; ?></td>
-				<td><?php echo money_format('%i', $item['rate']); ?></td>
-				<td><?php echo money_format('%i', $item['cost']); ?></td>
+				<td><?php echo money_format_us('%i', $item['rate']); ?></td>
+				<td><?php echo money_format_us('%i', $item['cost']); ?></td>
 			  </tr>
 			<?php } ?>
   		</tbody>

@@ -37,7 +37,7 @@ if (!defined('BASEPATH'))
   The function is tested using PHP 5.1.4 in Windows XP
   and Apache WebServer.
  */
-function money_format ($format, $number)
+function money_format_us ($format, $number)
 {
   $regex = '/%((?:[\^!\-]|\+|\(|\=.)*)([0-9]+)?' .
 		  '(?:#([0-9]+))?(?:\.([0-9]+))?([in%])/';
