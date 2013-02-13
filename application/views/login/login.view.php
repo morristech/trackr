@@ -1,47 +1,47 @@
 <!-- Login Form -->
-<div id="loginform">
+<?php
+// preparing form elements:
+$email = array(
+    'name' => 'email',
+    'id' => 'email',
+    'value' => '',
+    'class' => 'input-block-level',
+    'placeholder' => 'Email address'
+);
 
-    <?php
-    // preparing form elements:
-    $email = array(
-        'name' => 'email',
-        'id' => 'email',
-        'value' => '',
-        'class' => 'ui-corner-all'
-    );
+$password = array(
+    'name' => 'password',
+    'id' => 'password',
+    'value' => '',
+    'class' => 'input-block-level',
+    'placeholder' => 'Password'
+);
 
-    $password = array(
-        'name' => 'password',
-        'id' => 'password',
-        'value' => '',
-        'class' => 'ui-corner-all'
-    );
-
-    $attributes_form = array('class' => 'well');
-    echo form_open(base_url() . 'login', $attributes_form);
-    ?>
-    <h1><?php echo $site_name; ?> Login</h1>
+$attributes_form = array('class' => 'well');
+echo form_open(base_url() . 'login', $attributes_form);
+?>
+<h2>Please login</h2>
 
 
-    <!-- Notification -->
-    <?php echo validation_errors('<div class="alert alert-error">', '</div>'); ?>
-    <?php
-    if ($this->session->flashdata('login_message'))
-    {
-        echo '<div class="alert alert-error">' . $this->session->flashdata('login_message') . '</div>';
-    };
-    ?>
-    <!-- /Notification -->
+<!-- Notification -->
+<?php echo validation_errors('<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>', '</div>'); ?>
+<?php
+if ($this->session->flashdata('login_message'))
+{
+    echo '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>' . $this->session->flashdata('login_message') . '</div>';
+};
+?>
+<!-- /Notification -->
 
-    <?php
-    echo form_label('Email', $email['id']);
-    echo form_input($email);
-    echo form_label('Password', $password['id']);
-    echo form_password($password);
-    ?>
-    <button type="submit" class="btn btn-primary btn-large">Login</button>
-    <?php
-    echo form_close();
-    ?>
+<?php
+echo form_input($email);
+echo form_password($password);
+?>
+<div class="row-fluid show-grid">
+    <div class="span12"><button type="submit" class="btn btn-primary">Login</button>
+    </div>
 </div>
+<?php
+echo form_close();
+?>
 <!-- /Login Form -->
