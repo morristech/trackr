@@ -2,6 +2,6 @@
 /@user_guide/
 
 .DS_Store
-ehthumbs.db
-Icon?
 Thumbs.db
+/uploads/companies/*
+/uploads/users/*

@@ -37,7 +37,7 @@ if ($this->session->flashdata('login_message'))
 echo form_input($email);
 echo form_password($password);
 ?>
-<div class="row-fluid show-grid">
+<div class="row-fluid">
     <div class="span12"><button type="submit" class="btn btn-primary">Login</button>
     </div>
 </div>

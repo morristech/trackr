@@ -1,22 +1,67 @@
-/* Footer */
+/*
+----------------------------------------------------------------------------
+Footer
+----------------------------------------------------------------------------
+*/
 footer p {
-    text-align: center;
-    font-size: 12px;
-    color: gray;
+    text-align:center;
+    font-size:12px;
+    color:gray;
 }
 
-/* Login Page */
-body.fullscreen { padding-top: 20px; }
-#loginform h1 { text-align: center; display: block; margin-bottom: 10px; }
-#loginform input { width: 258px;}
+/*
+----------------------------------------------------------------------------
+Forms
+----------------------------------------------------------------------------
+*/
+.formbutton {
+    margin-top:10px;
+}
 
+/*
+----------------------------------------------------------------------------
+Login Page
+----------------------------------------------------------------------------
+*/
+body.fullscreen {
+    padding-top:20px;
+}
 
+#loginform h1 {
+    text-align:center;
+    display:block;
+    margin-bottom:10px;
+}
 
-/*! Internal Pages */
+#loginform input {
+    width:258px;
+}
+
+/*
+----------------------------------------------------------------------------
+Header
+----------------------------------------------------------------------------
+*/
 body.normal {
-    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+    padding-top:60px;
+    /* 60px to make the container go all the way to the bottom of the topbar */
 }
-.navbar .brand { font-weight: bold; color: #fff;}
 
-.withbtn { float: left; width: 80%;}
-.addbtn { float: right; }
+.navbar .brand {
+    font-weight:700;
+    color:#fff;
+}
+
+/*
+----------------------------------------------------------------------------
+Layouts
+----------------------------------------------------------------------------
+*/
+.withbtn {
+    float:left;
+    width:80%;
+}
+
+.addbtn {
+    float:right;
+}

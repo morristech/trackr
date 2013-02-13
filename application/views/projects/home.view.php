@@ -5,7 +5,7 @@
   if ($this->session->flashdata('success'))
   {
 	?>
-    <div class="alert alert-success"><?php echo $this->session->flashdata('success'); ?></div>
+    <div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button><?php echo $this->session->flashdata('success'); ?></div>
   <?php } ?>
 
 

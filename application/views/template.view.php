@@ -32,30 +32,31 @@
                     </a>
                     <a class="brand" href="<?php echo base_url(); ?>"><?php echo $site_name; ?></a>
                     <div class="btn-group pull-right">
-                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="icon-user"></i> <?php echo $fullname; ?>
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="javsscript:void(0);">
+                            <i class="icon-user"></i>&nbsp;<?php echo $fullname; ?>&nbsp;
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Profile</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Logout</a></li>
+                            <li><a href="<?php echo base_url(); ?>logout">Logout</a></li>
                         </ul>
                     </div>
                     <div class="nav-collapse">
                         <ul class="nav">
-                            <li class="active"><a href="<?php echo base_url(); ?>">Home</a></li>
+                            <li><a href="<?php echo base_url(); ?>">Home</a></li>
 
+                                    <li><a href="<?php echo base_url(); ?>projects">Projects</a></li>
 
+                            
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="<?php echo base_url(); ?>companies">Companies</a></li>
                                     <li><a href="<?php echo base_url(); ?>users">Users</a></li>
-                                    <li><a href="<?php echo base_url(); ?>projects">Projects</a></li>
-
                                 </ul>
                             </li>
+                            
 
 
                         </ul>
@@ -64,16 +65,18 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <?php $this->load->view($main_content); ?>
 
-            <?php $this->load->view($main_content); ?>
+                    <hr>
+                    <footer>
+                        <p>Copyright (c) <?php echo date('Y'); ?>, <a href="<?php echo base_url(); ?>"><?php echo $site_name; ?> - <?php echo SITE_VERSION; ?></a>. All rights reserved.</p>
+                    </footer>
 
-            <hr>
-
-            <footer>
-                <p>Copyright (c) <?php echo date('Y'); ?>, <a href="<?php echo base_url(); ?>"><?php echo $site_name; ?> - <?php echo SITE_VERSION; ?></a>. All rights reserved.</p>
-            </footer>
-
+                </div>
+            </div>
         </div> <!-- /container -->
 
         <!-- Le javascript

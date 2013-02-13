@@ -25,7 +25,7 @@
 
         <div class="container-fluid">
 
-            <div class="row-fluid show-grid">
+            <div class="row-fluid">
                 <div class="span4"></div>
                 <div class="span4"><?php $this->load->view($main_content); ?></div>
                 <div class="span4"></div>
