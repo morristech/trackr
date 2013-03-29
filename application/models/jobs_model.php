@@ -1,6 +1,6 @@
 <?php
 
-class Projects_model extends CI_Model
+class Jobs_model extends CI_Model
 {
 
     function __construct ()
@@ -8,16 +8,16 @@ class Projects_model extends CI_Model
         parent::__construct();
     }
 
-    function get_projects ($limit, $start)
+    function get_jobs ($pid)
     {
         if (DBTYPE == 'db')
         {
-            $this->db->select("data_projects.pid, data_projects.name, data_projects.description, data_projects.status_active, data_companies.name as company_name, data_companies.cid as company_id");
-            $this->db->from('data_projects');
-            $this->db->join('data_companies', 'data_companies.cid = data_projects.cid');
-            $this->db->where('data_projects.deleted', 0);
-            $this->db->order_by("data_projects.created_date", "desc");
-            $this->db->limit($limit, $start);
+            $this->db->select("data_jobs.*");
+            $this->db->from('data_jobs');
+            $this->db->join('data_projects', 'data_projects.pid = data_jobs.pid');
+            $this->db->where('data_jobs.deleted', 0);
+            $this->db->where('data_projects.pid', $pid);
+            $this->db->order_by("data_jobs.created_date", "desc");
             $query = $this->db->get();
             if ($query->num_rows >= 1)
             {
@@ -100,12 +100,12 @@ class Projects_model extends CI_Model
         }
     }
 
-    function get_project_by_name ($name)
+    function get_job_by_title ($name)
     {
         if (DBTYPE == 'db')
         {
             $this->db->select("*");
-            $this->db->from('data_projects');
+            $this->db->from('data_jobs');
             $this->db->where('name', $name);
             $query = $this->db->get();
             if ($query->num_rows >= 1)

@@ -2,6 +2,10 @@ var base_url = "http://trackr.local/";
 
 $(document).ready(function()
 {
+   // decimal places.
+   
+    
+    
   // ajax to perform tv show search
   $('#books_search button').click(function (event){
 	event.preventDefault();

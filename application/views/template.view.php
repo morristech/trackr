@@ -83,8 +83,7 @@
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <?php echo add_jscript('libs/jquery.js'); ?>
-        <?php echo add_jscript('bootstrap.js'); ?>
-        <?php echo add_jscript('bootbox.js'); ?>
+        <?php echo add_jscript('libs/bootstrap.js'); ?>
         <?php echo add_jscript('script.js'); ?>
 
 

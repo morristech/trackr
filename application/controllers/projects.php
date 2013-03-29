@@ -94,6 +94,14 @@ class Projects extends CI_Controller
 	$data['pid'] = $pid = $this->uri->segment(3);
 	$data['project'] = $this->projects_model->get_project_by_id($pid);
 	
+        $this->load->helper('date');
+        $this->load->helper('currency');
+        
+        $this->load->model('jobs_model');
+        $data['jobs'] = $this->jobs_model->get_jobs ($pid);
+        
+        $data['dateformat'] = "%d-%m-%Y %h:%i %a";
+        
 	$data['main_content'] = 'projects/info.view.php';
 	$this->load->view('template.view.php', $data);
   }

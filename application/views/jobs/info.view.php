@@ -9,6 +9,7 @@
     <div claas="row-fuild">
         <div class="span3"><code>Created: <?php
 echo mdate($dateformat, $project['created_date']);
+;
 ?></code></div>
 
         <div class="span3"><code>Assigned: <?php echo $project['company_name']; ?></code></div>

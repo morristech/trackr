@@ -50,31 +50,10 @@
 
     echo form_label('Description / Requirments', $description['id']);
     ?>
-    <p>
-    <div id="wysihtml5-toolbar" style="display: none;">
-        <a data-wysihtml5-command="bold" class="btn btn-mini">bold</a>
-        <a data-wysihtml5-command="italic" class="btn btn-mini">italic</a>
-
-        <!-- Some wysihtml5 commands require extra parameters -->
-        <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="red" class="btn-danger btn btn-mini">red</a>
-        <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="green" class="btn-success btn btn-mini">green</a>
-        <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="blue" class="btn-primary btn btn-mini">blue</a>
-
-        <!-- Some wysihtml5 commands like 'createLink' require extra paramaters specified by the user (eg. href) -->
-        <a data-wysihtml5-command="createLink" class="btn btn-mini">insert link</a>
-        <div data-wysihtml5-dialog="createLink" style="display: none;">
-            <label>
-                Link:
-                <input data-wysihtml5-dialog-field="href" value="http://" class="text">
-            </label>
-            <a data-wysihtml5-dialog-action="save">OK</a> <a data-wysihtml5-dialog-action="cancel">Cancel</a>
-        </div>
-    </div>
-</p>
 <?php
 echo form_textarea($description);
 
-echo form_label('Company', 'cid');
+echo form_label('Assign To Company', 'cid');
 echo form_dropdown('cid', $company_rows);
 ?>
 <div class="row-fluid formbutton">
@@ -86,13 +65,3 @@ echo form_dropdown('cid', $company_rows);
 <?php echo form_close(); ?>
 </div>
 <!-- /Projects Form -->
-
-<?php echo add_jscript('libs/wysihtml5_parser.js'); ?>
-<?php echo add_jscript('libs/wysihtml5.js'); ?>
-
-<script>
-    var editor = new wysihtml5.Editor("description", { // id of textarea element
-        toolbar:      "wysihtml5-toolbar", // id of toolbar element
-        parserRules:  wysihtml5ParserRules // defined in parser rules set
-    });
-</script>
