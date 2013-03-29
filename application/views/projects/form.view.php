@@ -50,12 +50,24 @@
 
     echo form_label('Description / Requirments', $description['id']);
     ?>
+
 <?php
 echo form_textarea($description);
-
-echo form_label('Assign To Company', 'cid');
-echo form_dropdown('cid', $company_rows);
 ?>
+<div class="row-fluid show-grid no-margins">
+<?php
+echo '<div class="span3">';
+echo form_label('Assign To Company', 'assigned_cid');
+echo form_dropdown('assigned_cid', $company_rows);
+echo '</div>';
+
+echo '<div class="span3">';
+echo form_label('Provider Company', 'provided_cid');
+echo form_dropdown('provided_cid', $company_rows);
+echo '</div>';
+?>
+</div>
+
 <div class="row-fluid formbutton">
         <div class="span12">
             <button type="submit" class="btn btn-primary">Save</button>

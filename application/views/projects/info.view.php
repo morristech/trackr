@@ -1,8 +1,9 @@
 <!-- Project -->
 <section id="project">
 
-    <h2><?php echo $project['name']; ?></h2>
 
+
+    <h2><?php echo $project['name']; ?></h2>
 
     <p><?php echo $project['description']; ?></p>
 
@@ -11,7 +12,7 @@
 echo mdate($dateformat, $project['created_date']);
 ?></code></div>
 
-        <div class="span3"><code>Assigned: <?php echo $project['company_name']; ?></code></div>
+        <div class="span3"><code>Assigned Company: <?php echo $project['company_name']; ?></code></div>
     </div>
 
 </section>

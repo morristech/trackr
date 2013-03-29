@@ -12,9 +12,9 @@ class Projects_model extends CI_Model
     {
         if (DBTYPE == 'db')
         {
-            $this->db->select("data_projects.pid, data_projects.name, data_projects.description, data_projects.status_active, data_companies.name as company_name, data_companies.cid as company_id");
+            $this->db->select("data_projects.pid, data_projects.name, data_projects.user_permissions, data_projects.description, data_projects.status_active, data_companies.name as company_name, data_companies.cid as company_id");
             $this->db->from('data_projects');
-            $this->db->join('data_companies', 'data_companies.cid = data_projects.cid');
+            $this->db->join('data_companies', 'data_companies.cid = data_projects.assigned_cid');
             $this->db->where('data_projects.deleted', 0);
             $this->db->order_by("data_projects.created_date", "desc");
             $this->db->limit($limit, $start);
@@ -83,9 +83,9 @@ class Projects_model extends CI_Model
 
         if (DBTYPE == 'db')
         {
-            $this->db->select("data_projects.pid, data_projects.name, data_projects.description, data_projects.status_active, data_companies.name as company_name, data_companies.cid as company_id, data_projects.created_date as created_date");
+            $this->db->select("data_projects.pid, data_projects.name, data_projects.user_permissions, data_projects.description, data_projects.status_active, data_companies.name as company_name, data_companies.cid as company_id, data_projects.created_date as created_date");
             $this->db->from('data_projects');
-            $this->db->join('data_companies', 'data_companies.cid = data_projects.cid');
+            $this->db->join('data_companies', 'data_companies.cid = data_projects.assigned_cid');
             $this->db->where('data_projects.deleted', 0);
             $this->db->where('data_projects.pid', $pid);
             $query = $this->db->get();

@@ -65,3 +65,8 @@ Layouts
 .addbtn {
     float:right;
 }
+
+.no-margins{
+    margin: 0px;
+    padding: 0px;
+}

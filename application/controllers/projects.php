@@ -13,6 +13,7 @@ class Projects extends CI_Controller
 	$data = $this->engineinit->boot_engine();
 	$this->load->model('projects_model');
 	$data['fullname'] = $this->engineinit->_get_session_fullname();
+	$data['logged_in_user_id'] = $this->engineinit->_get_session_uid();
 	// @todo need to check if user is already login into the system.
 	$this->engineinit->_is_not_logged_in_redirect('/login');
 	//$this->output->enable_profiler(TRUE);
@@ -68,7 +69,8 @@ class Projects extends CI_Controller
 	  if ($this->form_validation->run() == TRUE)
 	  {
 		// insert into db
-		$db_insert['cid'] = $this->input->post('cid');
+		$db_insert['assigned_cid'] = $this->input->post('assigned_cid');
+		$db_insert['provided_cid'] = $this->input->post('provided_cid');
 		$db_insert['name'] = $this->input->post('name');
 		$db_insert['description'] = $this->input->post('description');
 		$db_insert['status_active'] = 1;
@@ -103,6 +105,35 @@ class Projects extends CI_Controller
         $data['dateformat'] = "%d-%m-%Y %h:%i %a";
         
 	$data['main_content'] = 'projects/info.view.php';
+	$this->load->view('template.view.php', $data);
+  }
+
+  function permissions ()
+  {
+	global $data;
+	$data['pid'] = $pid = $this->uri->segment(3);
+	$data['project'] = $this->projects_model->get_project_by_id($pid);
+
+	// check if user have permissions.
+	$data['user_permissions'] = unserialize($data['project']['user_permissions']);
+
+	// get all users from system with their company associations.
+	$this->load->model('users_model');
+	$data['users'] = $this->users_model->get_users(10000, 0);
+
+	if ($this->input->post())
+	{
+		$db_update['user_permissions'] = serialize($this->input->post('user_permissions'));
+		$db_update['pid'] = $this->input->post('pid');
+		$update = $this->projects_model->update_project($db_update);
+		if ($update)
+		{
+		  $this->session->set_flashdata('success', 'Permissions saved.');
+		  redirect('projects/');
+		}
+	}
+
+	$data['main_content'] = 'projects/permissions.view.php';
 	$this->load->view('template.view.php', $data);
   }
 

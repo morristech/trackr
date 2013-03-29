@@ -22,7 +22,7 @@
 	<thead>
 	  <tr>
 		<th>Name</th>
-		<th>Company</th>
+		<th>Assigned Company</th>
 		<th>Options</th>
 	  </tr>
 	</thead>
@@ -32,6 +32,8 @@
 	  {
 		foreach ($recent_items as $item)
 		{
+			if (in_array($logged_in_user_id, unserialize($item['user_permissions'])))
+			{
 		  ?>
 
 
@@ -66,7 +68,9 @@
 	  			  <a class="btn btn-warning btn-mini" href="javascript:void(0);st('project', '<?php echo $item['pid']; ?>', '1')" id="pst_<?php echo $item['pid']; ?>"><i class="icon-pause icon-white"></i></a>
 				  <?php } ?>
 				  <a class="btn btn-mini btn-info" href="<?php echo base_url() . 'projects/info/' . $item['pid']; ?>"><i class="icon-info-sign icon-white"></i></a>
+				  <a class="btn btn-mini btn-primary" href="<?php echo base_url() . 'projects/edit/' . $item['pid']; ?>"><i class="icon-edit icon-white"></i></a>
 
+				  <a class="btn btn-mini btn-primary" href="<?php echo base_url() . 'projects/permissions/' . $item['pid']; ?>"><i class="icon-user icon-white"></i></a>
 
 				  <a class="btn btn-danger btn-mini" data-toggle="modal" href="#delmodel_<?php echo $item['pid']; ?>" id="pdel_<?php echo $item['pid']; ?>"><i class="icon-trash icon-white"></i></a></td>
 
@@ -74,7 +78,12 @@
 
 				<?php
 			  }
+			  else
+			  {
+			  	echo '<tr><td colspan="3">No items added in projects yet.<td></tr>';
+			  }
 			}
+		}
 			else
 			{
 			  ?>
