@@ -13,8 +13,10 @@ class Companies extends CI_Controller
         $data = $this->engineinit->boot_engine();
         $this->load->model('companies_model');
         $data['fullname'] = $this->engineinit->_get_session_fullname();
-        // @todo need to check if user is already login into the system.
+        // if user is already login into the system, if not then redirect to login
         $this->engineinit->_is_not_logged_in_redirect('/login');
+        // if user is not admin then show the 401 error.
+        $this->engineinit->_is_not_admin();
         //$this->output->enable_profiler(TRUE);
     }
 
