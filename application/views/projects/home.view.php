@@ -18,6 +18,10 @@
 
   <div class="clearfix"></div>
 
+<?php
+  if (count($recent_items) > 0)
+	  {
+?>
   <table class="table table-bordered table-striped">
 	<thead>
 	  <tr>
@@ -28,12 +32,10 @@
 	</thead>
 	<tbody>
 	  <?php
-	  if (count($recent_items) > 0)
-	  {
 		foreach ($recent_items as $item)
 		{
-			if (in_array($logged_in_user_id, unserialize($item['user_permissions'])))
-			{
+
+			
 		  ?>
 
 
@@ -77,21 +79,16 @@
 				</tr>
 
 				<?php
-			  }
-			  else
-			  {
-			  	echo '<tr><td colspan="3">No items added in projects yet.<td></tr>';
-			  }
 			}
-		}
-			else
-			{
-			  ?>
-
-  			<tr><td colspan="3">No items added in projects yet.<td></tr>
-			<?php } ?>
+		
+?>
 			</tbody>
 			</table>
+			<?php } 
+			else {
+				?>
+<p>No project available in the system yet. </p>
+		<?php	} ?>
 
 			</section>
 			<!-- /Projects -->

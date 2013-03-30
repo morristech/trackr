@@ -41,8 +41,18 @@ class Projects extends CI_Controller
 		$config['num_tag_close'] = '</li>';
 		$config['anchor_class'] = '';
 		$this->pagination->initialize( $config );
-		$data['recent_items'] = $this->projects_model->get_projects( $config['per_page'], $page );
-
+		$projects = $this->projects_model->get_projects( $config['per_page'], $page );
+		
+		// removing projects for which logged in user does not have permission.
+		$data['recent_items'] = array();
+		$i = 0;
+		foreach ($projects as $project) {
+			if ( in_array( $data['logged_in_user_id'], unserialize( $project['user_permissions'] ) ) ) {
+				$data['recent_items'][$i] = $project;
+				$i++;
+			}	
+		}
+		
 		$data['p_links'] = $this->pagination->create_links();
 
 		$data['main_content'] = 'projects/home.view.php';
@@ -68,6 +78,7 @@ class Projects extends CI_Controller
 				$db_insert['provided_cid'] = $this->input->post( 'provided_cid' );
 				$db_insert['name'] = $this->input->post( 'name' );
 				$db_insert['description'] = $this->input->post( 'description' );
+				$db_insert['user_permissions'] = serialize(array(1));
 				$db_insert['status_active'] = 1;
 				$db_insert['created_date'] = time();
 				$db_insert['updated_date'] = '';
