@@ -89,7 +89,13 @@ class Projects extends CI_Controller
 		$data['pid'] = $pid = $this->uri->segment( 3 );
 		$data['project'] = $this->projects_model->get_project_by_id( $pid );
 
-		// check if user have permissions.
+		// if project record is not found in the database show the 404 error.
+		if ( !$data['project'] ) {
+			show_404();
+			exit();
+		}
+
+		// check if user have permissions if not then show 401 error.
 		if ( !in_array( $data['logged_in_user_id'], unserialize( $data['project']['user_permissions'] ) ) ) {
 			show_error( 'Not authorized to view this project.', 401 );
 			exit();
@@ -113,25 +119,38 @@ class Projects extends CI_Controller
 		$data['pid'] = $pid = $this->uri->segment( 3 );
 		$data['project'] = $this->projects_model->get_project_by_id( $pid );
 
-		// check if user have permissions.
-		$data['user_permissions'] = unserialize( $data['project']['user_permissions'] );
-
-		// get all users from system with their company associations.
-		$this->load->model( 'users_model' );
-		$data['users'] = $this->users_model->get_users( 10000, 0 );
-
-		if ( $this->input->post() ) {
-			$db_update['user_permissions'] = serialize( $this->input->post( 'user_permissions' ) );
-			$db_update['pid'] = $this->input->post( 'pid' );
-			$update = $this->projects_model->update_project( $db_update );
-			if ( $update ) {
-				$this->session->set_flashdata( 'success', 'Permissions saved.' );
-				redirect( 'projects/' );
-			}
+		// if project record is not found in the database show the 404 error.
+		if ( !$data['project'] && !$this->input->post() ) {
+			show_404();
+			exit();
 		}
 
-		$data['main_content'] = 'projects/permissions.view.php';
-		$this->load->view( 'template.view.php', $data );
+		// check if user have permissions if not then show 401 error.
+		if ( !$this->input->post() && !in_array( $data['logged_in_user_id'], unserialize( $data['project']['user_permissions'] ) ) ) {
+			show_error( 'Not authorized to view this project.', 401 );
+			exit();
+		}
+		else {
+			// check if user have permissions.
+			$data['user_permissions'] = unserialize( $data['project']['user_permissions'] );
+
+			// get all users from system with their company associations.
+			$this->load->model( 'users_model' );
+			$data['users'] = $this->users_model->get_users( 10000, 0 );
+
+			if ( $this->input->post() ) {
+				$db_update['user_permissions'] = serialize( $this->input->post( 'user_permissions' ) );
+				$db_update['pid'] = $this->input->post( 'pid' );
+				$update = $this->projects_model->update_project( $db_update );
+				if ( $update ) {
+					$this->session->set_flashdata( 'success', 'Permissions saved.' );
+					redirect( 'projects/' );
+				}
+			}
+
+			$data['main_content'] = 'projects/permissions.view.php';
+			$this->load->view( 'template.view.php', $data );
+		}
 	}
 
 	function _name_check( $name ) {
